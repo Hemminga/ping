@@ -23,11 +23,12 @@ if __name__ == '__main__':
         print(exit_code.stdout.decode("utf-8"))
     query = """INSERT INTO ping(delay)
                    VALUES(%s)"""
-    print(f"os.getenv('DATABASE_DATABASE'): {os.getenv('DATABASE_DATABASE')}")
-    print(f"os.getenv('DATABASE_USER'): {os.getenv('DATABASE_USER')}")
-    print(f"os.getenv('DATABASE_HOST'): {os.getenv('DATABASE_HOST')}")
-    print(f"os.getenv('DATABASE_PORT'): {os.getenv('DATABASE_PORT')}")
-    print(f"os.getenv('DATABASE_PASSWORD'): {os.getenv('DATABASE_PASSWORD')}")
+    if DEBUG:
+        print(f"os.getenv('DATABASE_DATABASE'): {os.getenv('DATABASE_DATABASE')}")
+        print(f"os.getenv('DATABASE_USER'): {os.getenv('DATABASE_USER')}")
+        print(f"os.getenv('DATABASE_HOST'): {os.getenv('DATABASE_HOST')}")
+        print(f"os.getenv('DATABASE_PORT'): {os.getenv('DATABASE_PORT')}")
+        print(f"os.getenv('DATABASE_PASSWORD'): {os.getenv('DATABASE_PASSWORD')}")
 
     with psycopg.connect(
             f"dbname={os.getenv('DATABASE_DATABASE')} "
